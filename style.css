@@ -83,7 +83,7 @@ header {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url('photos/Fede%20Garcia%20Sailing%20Coach.jpg'); /* Cambiá esto por el path real */
+  background-image: url('photos/fede%20garcia%20sailing%20coach.jpg'); /* Cambiá esto por el path real */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
