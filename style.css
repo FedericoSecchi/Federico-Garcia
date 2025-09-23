@@ -1,0 +1,212 @@
+/* === NAVBAR === */
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: #fff;
+  color: #111;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #111;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #111;
+  bottom: -4px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #555;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Por ahora ocultamos en mobile. Más adelante podemos armar un menú hamburguesa */
+  }
+}
+
+/* === HERO === */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/Photos/Fede\ garcia\ Sailing\ Coach.jpg'); /* Cambiá esto por el path real */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45); /* oscurece un poco la imagen para mayor contraste */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn.primary {
+  background-color: #111;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background-color: #333;
+}
+
+.btn.secondary {
+  background-color: #fff;
+  color: #111;
+  border: 1px solid #111;
+}
+
+.btn.secondary:hover {
+  background-color: #eee;
+}
+
+/* === Responsive Hero === */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+/* === ABOUT === */
+.about {
+  padding: 6rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.about-text p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* === Responsive About === */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 1.75rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+}
