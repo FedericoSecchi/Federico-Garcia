@@ -330,7 +330,7 @@ header {
 
 .results-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   max-width: 1000px;
   justify-content: center;
@@ -465,4 +465,22 @@ header {
 
 .skill-item:hover {
   transform: translateY(-3px);
+}
+
+/* Added additional result items */
+.results-grid .result-item:nth-child(4) {
+  /* new item 1 */
+}
+.results-grid .result-item:nth-child(5) {
+  /* new item 2 */
+}
+.results-grid .result-item:nth-child(6) {
+  /* new item 3 */
+}
+
+/* Additional result items added in HTML, see instructions */
+@media (max-width: 768px) {
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
 }
