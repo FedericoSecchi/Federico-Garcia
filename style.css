@@ -430,7 +430,7 @@ header {
   }
   
   .hero-overlay {
-    padding-top: 100px; /* ⬅️ REDUCIDO de 150px a 100px */
+    padding-top: 150px; 
     align-items: flex-start; /* ⬅️ CAMBIADO a flex-start */
     width: 100vw;
   }
