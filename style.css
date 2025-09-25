@@ -100,7 +100,7 @@ header {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 200px;
+  padding-top: 180px; /* ⬅️ REDUCIDO de 200px a 180px */
   box-sizing: border-box;
 }
 
@@ -109,7 +109,7 @@ header {
   color: #fff;
   padding: 0 2rem;
   max-width: 800px;
-  box-sizing: border-box; /* ✅ INCLUYE padding en el ancho */
+  box-sizing: border-box;
 }
 
 .hero-content h1 {
@@ -135,7 +135,7 @@ header {
   align-items: center;
   justify-content: center;
   width: 100%;
-  box-sizing: border-box; /* ✅ INCLUYE padding en el ancho */
+  box-sizing: border-box;
 }
 
 .about {
@@ -165,7 +165,7 @@ header {
   width: 100%;
   border-radius: 8px;
   object-fit: cover;
-  max-width: 100%; /* ✅ PREVIENE desbordamiento de imágenes */
+  max-width: 100%;
 }
 
 .about-text h2 {
@@ -218,7 +218,7 @@ header {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  max-width: 100%; /* ✅ PREVIENE desbordamiento de imágenes */
+  max-width: 100%;
 }
 
 .experience-item h3 {
@@ -415,7 +415,7 @@ header {
   
   .navbar {
     padding: 0.8rem 1rem;
-    width: 100vw; /* ✅ USA viewport width */
+    width: 100vw;
   }
   
   .container {
@@ -426,18 +426,19 @@ header {
   .hero {
     height: 100vh;
     min-height: 500px;
-    width: 100vw; /* ✅ ANCHO completo del viewport */
+    width: 100vw;
   }
   
   .hero-overlay {
-    padding-top: 150px;
-    align-items: center;
-    width: 100vw; /* ✅ ANCHO completo del viewport */
+    padding-top: 100px; /* ⬅️ REDUCIDO de 150px a 100px */
+    align-items: flex-start; /* ⬅️ CAMBIADO a flex-start */
+    width: 100vw;
   }
   
   .hero-content {
     padding: 0 1rem;
     width: 100%;
+    margin-top: -20px; /* ⬅️ AJUSTE FINO: sube 20px más */
   }
   
   .hero-content h1 {
@@ -452,7 +453,7 @@ header {
     height: auto;
     min-height: auto;
     padding: 4rem 1rem;
-    width: 100vw; /* ✅ ANCHO completo del viewport */
+    width: 100vw;
   }
   
   .about-grid {
@@ -498,7 +499,12 @@ header {
   }
   
   .hero-overlay {
-    padding-top: 100px;
+    padding-top: 60px; /* ⬅️ REDUCIDO de 100px a 60px */
+    align-items: flex-start; /* ⬅️ CAMBIADO a flex-start */
+  }
+  
+  .hero-content {
+    margin-top: -10px; /* ⬅️ AJUSTE FINO: sube 10px más */
   }
   
   .hero-content h1 {
@@ -510,14 +516,13 @@ header {
   }
   
   .about, .experience, .results, .skills, .contact {
-    padding: 3rem 0.5rem; /* ✅ PADDING reducido */
+    padding: 3rem 0.5rem;
   }
   
   .skills-grid {
     grid-template-columns: 1fr;
   }
   
-  /* ✅ ELIMINA márgenes en elementos específicos */
   .experience-item, .result-item, .skill-item {
     margin: 0;
   }
