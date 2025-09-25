@@ -16,7 +16,7 @@ header {
 
 .navbar {
   width: 100%;
-  padding: 1rem 2rem; /* ✅ REDUCIDO padding para header más compacto */
+  padding: 1rem 2rem;
   display: flex;
   justify-content: center;
 }
@@ -42,6 +42,11 @@ header {
   gap: 2rem;
   margin: 0;
   padding: 0;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
 }
 
 .nav-links li a {
@@ -71,29 +76,28 @@ header {
   width: 100%;
 }
 
-
 /* === HERO === */
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* ✅ CAMBIADO a 100vh */
+  height: 100vh;
   min-height: 600px;
   background-image: url('photos/fede-garcia-sailing-coach.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden; /* ✅ EVITA que el overlay se desborde */
+  overflow: hidden;
 }
 
 .hero-overlay {
   width: 100%;
-  height: 100%; /* ✅ OCUPA el 100% del hero */
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: flex-start;
   justify-content: center;
   padding-top: 200px;
-  box-sizing: border-box; /* ✅ INCLUYE el padding en el height total */
+  box-sizing: border-box;
 }
 
 .hero-content {
@@ -117,95 +121,9 @@ header {
   text-align: center;
 }
 
-/* === RESPONSIVE DESIGN - MEDIA QUERIES UNIFICADAS === */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  
-  .navbar {
-    padding: 0.8rem 1rem;
-  }
-  
-  .hero {
-    height: 100vh; /* ✅ 100vh también en tablet */
-    min-height: 500px;
-  }
-  
-  .hero-overlay {
-    padding-top: 150px; /* ✅ UN solo valor para tablet */
-    align-items: center;
-  }
-  
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-content p {
-    font-size: 1.1rem;
-  }
-  
-  .about, .experience, .results, .skills, .contact {
-    height: auto;
-    min-height: auto;
-    padding: 4rem 1rem;
-  }
-  
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
-  }
-  
-  .experience-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .results-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0.6rem 1rem;
-  }
-  
-  .hero {
-    height: 100vh; /* ✅ 100vh también en móvil */
-    min-height: 400px;
-  }
-  
-  .hero-overlay {
-    padding-top: 100px; /* ✅ UN solo valor para móvil */
-  }
-  
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  
-  .hero-content p {
-    font-size: 1rem;
-  }
-  
-  .about, .experience, .results, .skills, .contact {
-    padding: 3rem 1rem;
-  }
-}
-
-
-/* === SECTIONS GENERAL - 90vh === */
+/* === SECTIONS GENERAL === */
 .about, .experience, .results, .skills, .contact {
-  height: 90vh; /* ✅ TODAS las secciones a 90vh */
+  height: 90vh;
   min-height: 600px;
   padding: 0 2rem;
   display: flex;
@@ -373,24 +291,11 @@ header {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* ✅ 4 columnas para 8 items = 2 filas */
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   max-width: 1000px;
   width: 100%;
 }
-
-@media (max-width: 968px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr); /* ✅ 2 columnas en tablet */
-  }
-}
-
-@media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: 1fr; /* ✅ 1 columna en móvil */
-  }
-}
-
 
 .skill-item {
   background-color: #f5f5f5;
@@ -401,6 +306,11 @@ header {
   font-weight: 500;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  text-align: center;
 }
 
 .skill-item:hover {
@@ -475,24 +385,29 @@ header {
 }
 
 /* === RESPONSIVE DESIGN === */
+@media (max-width: 968px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
-  .nav-links {
+  .nav-links, .nav-buttons {
     display: none;
   }
   
   .navbar {
-    padding: 0.8rem 1rem; /* ✅ Header aún más compacto en móvil */
+    padding: 0.8rem 1rem;
   }
   
   .hero {
-    height: 90vh; /* ✅ Mantiene 90vh en móvil también */
+    height: 100vh;
     min-height: 500px;
   }
   
-  .about, .experience, .results, .skills, .contact {
-    height: auto; /* ✅ En móvil mejor altura automática */
-    min-height: auto;
-    padding: 4rem 1rem;
+  .hero-overlay {
+    padding-top: 150px;
+    align-items: center;
   }
   
   .hero-content h1 {
@@ -501,6 +416,12 @@ header {
   
   .hero-content p {
     font-size: 1.1rem;
+  }
+  
+  .about, .experience, .results, .skills, .contact {
+    height: auto;
+    min-height: auto;
+    padding: 4rem 1rem;
   }
   
   .about-grid {
@@ -529,7 +450,16 @@ header {
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 0.6rem 1rem; /* ✅ Mínimo padding en móvil pequeño */
+    padding: 0.6rem 1rem;
+  }
+  
+  .hero {
+    height: 100vh;
+    min-height: 400px;
+  }
+  
+  .hero-overlay {
+    padding-top: 100px;
   }
   
   .hero-content h1 {
@@ -542,5 +472,9 @@ header {
   
   .about, .experience, .results, .skills, .contact {
     padding: 3rem 1rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 }
