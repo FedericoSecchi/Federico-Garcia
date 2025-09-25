@@ -201,12 +201,12 @@ header {
   overflow: hidden;
   border-radius: 12px;
 }
-
 .about-image img {
   width: 100%;
-  height: 400px;
-  object-fit: cover;
+  max-width: 100%; 
+  height: auto; 
   transition: transform 0.3s ease;
+  border-radius: 8px;
 }
 
 .about-image:hover img {
@@ -280,6 +280,7 @@ header {
 }
 
 .experience-item ul {
+  list-style: none;
   text-align: left;
   padding: 0 1.5rem 1.5rem;
   margin: 0;
