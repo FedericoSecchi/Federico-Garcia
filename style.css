@@ -555,7 +555,7 @@ footer p {
   }
   
   .hero-overlay {
-    padding-top: 150px;
+    padding-top: 50px;
     align-items: flex-start;
     width: 100%;
   }
@@ -621,12 +621,12 @@ footer p {
   }
   
   .hero-overlay {
-    padding-top: 60px;
+    padding-top: 40px; /* ⬅️ CAMBIADO de 60px a 40px (más arriba) */
     align-items: flex-start;
   }
   
   .hero-content {
-    margin-top: -10px;
+    margin-top: -20px;
   }
   
   .about, .experience, .results, .skills, .contact {
