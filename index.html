@@ -11,6 +11,9 @@
   
     <title>Fede García | High-Performance Sailing Coach - 29er, 420, Nacra 17</title>
   
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/Favicon.png" />
   
@@ -19,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
   
-    <!-- CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
   
     <!-- Open Graph -->
@@ -50,16 +53,27 @@
       <nav class="navbar" aria-label="Main navigation">
         <div class="container">
           <a href="#" class="logo">Fede García</a>
-          <ul class="nav-links" role="menubar">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#results">Results</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <div class="nav-buttons">
-            <a href="#contact" class="btn primary">Contact</a>
-            <a href="https://drive.google.com/file/d/18YtGPU-S6CeOM9YIZ3MW_72naj5lmJPs/view?usp=drive_link" class="btn secondary" target="_blank" rel="noopener noreferrer">Download CV</a>
+          
+          <input type="checkbox" id="nav-toggle" class="nav-toggle">
+          <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          
+          <div class="nav-content">
+            <ul class="nav-links">
+              <li><a href="#about">About</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#results">Results</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+              <a href="#contact" class="btn primary">Contact</a>
+              <a href="https://drive.google.com/file/d/18YtGPU-S6CeOM9YIZ3MW_72naj5lmJPs/view?usp=drive_link" 
+                 class="btn secondary" target="_blank" rel="noopener noreferrer">Download CV</a>
+            </div>
           </div>
         </div>
       </nav>
