@@ -802,3 +802,12 @@ footer p {
 .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
 }
+
+/* Opcional: Mejorar performance de animaciones */
+.fade-in-scroll {
+  will-change: transform, opacity;
+}
+
+.experience-item, .result-item, .skill-item {
+  will-change: transform;
+}
