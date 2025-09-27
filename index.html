@@ -275,5 +275,45 @@
       elements.forEach(el => observer.observe(el));
     });
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Fade-in al scroll
+        const elements = document.querySelectorAll('.fade-in-scroll');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        elements.forEach(el => observer.observe(el));
+      
+        // Cerrar menú con animación suave
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.querySelectorAll('.nav-links a, .nav-buttons a');
+        
+        navLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            // Solo cerrar si es enlace interno (no externo)
+            if (this.getAttribute('href').startsWith('#')) {
+              e.preventDefault();
+              
+              // Cerrar menú primero
+              navToggle.checked = false;
+              
+              // Desplazamiento suave después de cerrar menú
+              setTimeout(() => {
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                  targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 300);
+            }
+          });
+        });
+      });
+      </script>
   </body>
 </html>
