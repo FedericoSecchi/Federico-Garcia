@@ -177,25 +177,55 @@ body {
   width: 100%;
 }
 
-/* === HERO SECTION === */
+/* === HERO SECTION WITH VIDEO === */
 .hero {
   position: relative;
   width: 100%;
   height: 100vh;
   min-height: 600px;
-  background-image: url('photos/fede-garcia-sailing-coach.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   overflow: hidden;
   margin-top: 80px;
+  /* Quitamos la imagen de fondo anterior */
+  background: none;
 }
 
-.hero-overlay {
+.hero-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Asegurar que el video cubra todo el espacio */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
+}
+
+/* Ajustar el hero overlay existente para que esté sobre el video */
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* Quitamos el gradient anterior */
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -223,6 +253,13 @@ body {
   font-weight: 300;
   margin-bottom: 2rem;
   line-height: 1.6;
+}
+
+/* Optimizar performance del video */
+.hero-video {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
 }
 
 /* === SECTIONS GENERAL === */
@@ -392,10 +429,9 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* AJUSTE ESPECÍFICO PARA LA TERCERA FOTO - 10px MÁS ABAJO */
+/* AJUSTE ESPECÍFICO PARA LA TERCERA FOTO - CENTRO MÁS ARRIBA */
 .experience-item:nth-child(3) .experience-img {
   object-position: center 45%;
-  
 }
 
 .experience-item:hover .experience-img {
@@ -688,22 +724,25 @@ footer p {
     justify-content: center;
   }
   
-  /* Hero Section */
+  /* Hero Section Mobile */
   .hero {
     height: 100vh;
     min-height: 500px;
     margin-top: 70px;
-    background-attachment: scroll;
   }
   
   .hero-overlay {
     padding-top: 150px;
-    align-items: flex-start;
   }
   
   .hero-content {
     padding: 0 1rem;
     margin-top: -20px;
+  }
+  
+  /* Para móviles: mejorar performance del video */
+  .hero-video {
+    /* El video se comporta igual en móvil */
   }
   
   /* Sections */
@@ -749,7 +788,7 @@ footer p {
   
   /* Ajuste para la tercera foto en móvil también */
   .experience-item:nth-child(3) .experience-img {
-    top: 10px;
+    object-position: center 45%;
   }
 }
 
@@ -808,4 +847,18 @@ footer p {
 
 .experience-item, .result-item, .skill-item {
   will-change: transform;
+}
+
+/* === VIDEO PLACEHOLDER (si no hay video) === */
+/* Si el video no carga, mostrar gradiente animado */
+.hero-video-container:has(.hero-video[src=""]) {
+  background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
