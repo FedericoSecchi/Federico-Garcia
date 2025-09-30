@@ -5,31 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
-    <!-- MEJORADO: Meta description con resultados específicos -->
     <meta name="description" content="Fede García - 29er, 420, Nacra 17 Sailing Coach. Youth Worlds Champion 2021, Weymouth Worlds 2nd 2023. International coaching + Olympic campaigns." />
-    
-    <!-- NUEVO: Keywords estratégicas -->
     <meta name="keywords" content="sailing coach, sailing training, 29er coach, 420 sailing, Nacra 17, Olympic sailing, youth sailing coach, high-performance sailing" />
-    
     <meta name="author" content="Fede García" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href="https://fedegarcia.com" />
     
-    <!-- MEJORADO: Título optimizado para "sailing coach" -->
     <title>Sailing Coach | Fede García - 29er, 420, Nacra 17 Specialist | Youth Worlds Champion</title>
   
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/Favicon.png" />
-  
-    <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
-  
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
   
-    <!-- MEJORADO: Open Graph optimizado -->
     <meta property="og:title" content="Fede García – Professional Sailing Coach | 29er, 420, Nacra 17 Specialist" />
     <meta property="og:description" content="Youth Worlds Champion 2021, Weymouth Worlds 2nd 2023. High-performance sailing coach specializing in 29er, 420, and Nacra 17." />
     <meta property="og:image" content="https://fedegarcia.com/assets/OG-Image.JPG" />
@@ -37,7 +26,6 @@
     <meta property="og:url" content="https://fedegarcia.com" />
     <meta property="og:site_name" content="Fede García Sailing Coach" />
     
-    <!-- MEJORADO: Schema Markup ampliado con premios -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -66,7 +54,6 @@
     }
     </script>
     
-    <!-- NUEVO: Meta para robots -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   </head>
 
@@ -103,15 +90,15 @@
 
     <main>
       <section id="hero" class="hero">
-          <!-- Video de fondo -->
-  <div class="hero-video-container">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="video/sailing-background.mp4"video/mp4">
-      <!-- Fallback para navegadores que no soportan video -->
-      <img src="photos/fede-garcia-sailing-coach.jpg" alt="Sailing background">
-    </video>
-    <div class="hero-video-overlay"></div>
-  </div>
+        <!-- Video de fondo CORREGIDO -->
+        <div class="hero-video-container">
+          <video class="hero-video" autoplay muted loop playsinline>
+            <source src="video/sailing-background.mp4" type="video/mp4">
+            <!-- Fallback para navegadores que no soportan video -->
+            <img src="photos/fede-garcia-sailing-coach.jpg" alt="Sailing background">
+          </video>
+          <div class="hero-video-overlay"></div>
+        </div>
 
         <div class="hero-overlay">
           <div class="hero-content">
@@ -152,8 +139,8 @@
               <p>Led the 420 and 29er program at Yacht Club Argentino; Head Coach of the Swiss Region 5 29er program.</p>
             </div>
             <div class="experience-item fade-in-scroll delay-3">
-              <!-- AÑADIR CLASE "photo-adjust" aquí -->
-              <img src="photos/professional-sailing-coach-29er-training.jpg.jpg" alt="Youth sailing development coach Fede García - Swiss Sailing Team collaboration" class="experience-img photo-adjust" loading="lazy" />
+              <!-- IMAGEN CORREGIDA -->
+              <img src="photos/professional-sailing-coach-29er-training.jpg" alt="Youth sailing development coach Fede García - Swiss Sailing Team collaboration" class="experience-img" loading="lazy" />
               <h3>Youth Development</h3>
               <p>Collaborated with the Swiss Sailing Team; National 29er Coach for Argentina.</p>
             </div>
@@ -177,7 +164,8 @@
             </div>
             <div class="result-item fade-in-scroll delay-2">
               <span class="result-icon">🥇</span>
-              <h3>2021 Youth Worlds</h3>
+              <!-- AÑO CORREGIDO -->
+              <h3>2022 Youth Worlds</h3>
               <p>1st Male & 1st Women - 29er</p>
             </div>
             <div class="result-item fade-in-scroll delay-3">
@@ -253,7 +241,6 @@
       </div>
     </footer>
 
-    <!-- Mini JavaScript para fade-in al scroll -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
       const elements = document.querySelectorAll('.fade-in-scroll');
@@ -266,47 +253,26 @@
       }, { threshold: 0.1 });
       
       elements.forEach(el => observer.observe(el));
-    });
-    </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Fade-in al scroll
-        const elements = document.querySelectorAll('.fade-in-scroll');
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        }, { threshold: 0.1 });
-        
-        elements.forEach(el => observer.observe(el));
+
+      const navToggle = document.getElementById('nav-toggle');
+      const navLinks = document.querySelectorAll('.nav-links a, .nav-buttons a');
       
-        // Cerrar menú con animación suave
-        const navToggle = document.getElementById('nav-toggle');
-        const navLinks = document.querySelectorAll('.nav-links a, .nav-buttons a');
-        
-        navLinks.forEach(link => {
-          link.addEventListener('click', function(e) {
-            // Solo cerrar si es enlace interno (no externo)
-            if (this.getAttribute('href').startsWith('#')) {
-              e.preventDefault();
-              
-              // Cerrar menú primero
-              navToggle.checked = false;
-              
-              // Desplazamiento suave después de cerrar menú
-              setTimeout(() => {
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                  targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              }, 300);
-            }
-          });
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            navToggle.checked = false;
+            setTimeout(() => {
+              const targetId = this.getAttribute('href').substring(1);
+              const targetElement = document.getElementById(targetId);
+              if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }, 300);
+          }
         });
       });
-      </script>
+    });
+    </script>
   </body>
 </html>
