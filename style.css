@@ -45,7 +45,7 @@ body {
 .delay-5.visible { transition-delay: 0.5s; }
 .delay-6.visible { transition-delay: 0.6s; }
 
-/* Delays específicos para skills-grid en orden visual (DESKTOP) */
+/* Delays específicos para skills-grid */
 @media (min-width: 769px) {
   .skills-grid .skill-item.fade-in-scroll.visible:nth-child(1) { transition-delay: 0.1s; }
   .skills-grid .skill-item.fade-in-scroll.visible:nth-child(2) { transition-delay: 0.2s; }
@@ -57,7 +57,6 @@ body {
   .skills-grid .skill-item.fade-in-scroll.visible:nth-child(8) { transition-delay: 0.8s; }
 }
 
-/* Para móvil, usar delays secuenciales */
 @media (max-width: 768px) {
   .skills-grid .skill-item.fade-in-scroll.visible:nth-child(1) { transition-delay: 0.1s; }
   .skills-grid .skill-item.fade-in-scroll.visible:nth-child(2) { transition-delay: 0.2s; }
@@ -105,7 +104,6 @@ body {
   color: var(--secondary-color);
 }
 
-/* Checkbox hack para mobile menu */
 .nav-toggle {
   display: none;
 }
@@ -185,7 +183,6 @@ body {
   min-height: 600px;
   overflow: hidden;
   margin-top: 80px;
-  /* Quitamos la imagen de fondo anterior */
   background: none;
 }
 
@@ -204,7 +201,6 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  /* Asegurar que el video cubra todo el espacio */
   min-width: 100%;
   min-height: 100%;
 }
@@ -219,13 +215,12 @@ body {
   z-index: 1;
 }
 
-/* Ajustar el hero overlay existente para que esté sobre el video */
 .hero-overlay {
   position: relative;
   z-index: 2;
   width: 100%;
   height: 100%;
-  background: transparent; /* Quitamos el gradient anterior */
+  background: transparent;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -286,7 +281,7 @@ body {
   background-color: #f5f5f5;
 }
 
-/* === SKILLS SECTION (90% VIEWPORT) === */
+/* === SKILLS SECTION === */
 .skills {
   min-height: 90vh;
   padding: 5rem 2rem;
@@ -345,7 +340,7 @@ body {
   opacity: 1;
 }
 
-/* === ABOUT SECTION === */
+/* === ABOUT SECTION OPTIMIZADA === */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -360,6 +355,8 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
+  background-color: #f5f5f5; /* Fondo de respaldo */
+  min-height: 400px; /* Altura mínima */
 }
 
 .about-image img {
@@ -369,6 +366,25 @@ body {
   border-radius: 8px;
   object-fit: cover;
   transition: transform 0.3s ease;
+  display: block;
+  /* Asegurar que la imagen siempre se muestre */
+  position: relative;
+  z-index: 2;
+}
+
+/* Estado de carga para imágenes */
+.about-image img:not([src]),
+.about-image img[src=""],
+.about-image img[src*="undefined"] {
+  min-height: 400px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .about-image:hover img {
@@ -427,9 +443,10 @@ body {
   height: 200px;
   object-fit: cover;
   transition: transform 0.3s ease;
+  background-color: #e9e9e9; /* Fondo de respaldo */
 }
 
-/* AJUSTE ESPECÍFICO PARA LA TERCERA FOTO - CENTRO MÁS ARRIBA */
+/* AJUSTE ESPECÍFICO PARA LA TERCERA FOTO */
 .experience-item:nth-child(3) .experience-img {
   object-position: center 45%;
 }
@@ -509,9 +526,9 @@ body {
 /* === VIEW MORE RESULTS BUTTON === */
 .results-more {
   text-align: center;
-  margin-top: 50px; /* 50px de interlineado arriba */
-  padding-top: 16px; /* 16px de línea arriba */
-  border-top: 1px solid #e0e0e0; /* línea discreta */
+  margin-top: 50px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
 }
 
 .view-more-btn {
@@ -532,18 +549,6 @@ body {
   background-color: var(--primary-color);
   color: white;
   transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-  .results-more {
-    margin-top: 40px;
-    padding-top: 12px;
-  }
-  
-  .view-more-btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
 }
 
 /* === CONTACT SECTION === */
@@ -740,28 +745,33 @@ footer p {
     margin-top: -20px;
   }
   
-  /* Para móviles: mejorar performance del video */
-  .hero-video {
-    /* El video se comporta igual en móvil */
-  }
-  
-  /* Sections */
+  /* Sections Mobile */
   .about, .experience, .results, .contact {
     padding: 3rem 1rem;
     min-height: auto;
     scroll-margin-top: 80px;
   }
   
-  /* Skills Section Mobile */
-  .skills {
-    min-height: auto;
-    padding: 3rem 1rem;
-  }
-  
+  /* About Section Mobile Optimizada */
   .about-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
+  }
+  
+  .about-image {
+    min-height: 300px; /* Altura reducida para móvil */
+    order: 2; /* Imagen después del texto en móvil */
+  }
+  
+  .about-text {
+    order: 1; /* Texto primero en móvil */
+  }
+  
+  /* Skills Section Mobile */
+  .skills {
+    min-height: auto;
+    padding: 3rem 1rem;
   }
   
   .experience-grid {
@@ -786,7 +796,7 @@ footer p {
     gap: 1rem;
   }
   
-  /* Ajuste para la tercera foto en móvil también */
+  /* Ajuste para la tercera foto en móvil */
   .experience-item:nth-child(3) .experience-img {
     object-position: center 45%;
   }
@@ -816,6 +826,10 @@ footer p {
     padding: 2rem 0.5rem;
   }
   
+  .about-image {
+    min-height: 250px; /* Más compacto en móviles pequeños */
+  }
+  
   .btn {
     padding: 1rem 1.5rem;
     width: 100%;
@@ -840,7 +854,7 @@ footer p {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Opcional: Mejorar performance de animaciones */
+/* Mejorar performance */
 .fade-in-scroll {
   will-change: transform, opacity;
 }
@@ -849,8 +863,7 @@ footer p {
   will-change: transform;
 }
 
-/* === VIDEO PLACEHOLDER (si no hay video) === */
-/* Si el video no carga, mostrar gradiente animado */
+/* === VIDEO PLACEHOLDER === */
 .hero-video-container:has(.hero-video[src=""]) {
   background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
   background-size: 400% 400%;
@@ -861,4 +874,24 @@ footer p {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* === FALLBACKS PARA IMÁGENES QUE NO CARGAN === */
+.about-image::before {
+  content: "Fede García - Sailing Coach";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #666;
+  font-size: 1rem;
+  text-align: center;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.about-image:has(img:not([src]))::before,
+.about-image:has(img[src=""])::before {
+  opacity: 1;
 }
